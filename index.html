@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- --------- UNICONS ---------- -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+
+    <!-- --------- CSS ---------- -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- --------- FAVICON ---------- -->
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <title>Robys Band || Grupo Musical 
+    </title>
+</head>
+<body>
+   <div class="container">
+    <!-- --------------- HEADER --------------- -->
+    <nav id="header">
+        <div class="nav-logo">
+            <p class="nav-name">D' Robys Band</p>
+            <span>.</span>
+        </div>
+        <div class="nav-menu" id="myNavMenu">
+            <ul class="nav_menu_list">
+                <li class="nav_list">
+                    <a href="#home" class="nav-link active-link">Inicio</a>
+                    <div class="circle"></div>
+                </li>
+                <li class="nav_list">
+                    <a href="#about" class="nav-link">Sobre nosotros</a>
+                    <div class="circle"></div>
+                </li>
+                <li class="nav_list">
+                    <a href="#projects" class="nav-link">Trayectoria</a>
+                    <div class="circle"></div>
+                </li>
+                <li class="nav_list">
+                    <a href="#contact" class="nav-link">Contactos</a>
+                    <div class="circle"></div>
+                </li>
+            </ul>
+            <div class="close-btn" onclick="myMenuFunction()">X</div> <!-- Botón de cierre -->
+        </div>
+        <div class="nav-button">
+            <button class="btn">Canal de Youtube<i class="uil uil-youtube"></i></button>
+        </div>
+    
+        <div class="nav-menu-btn">
+            <i class="uil uil-bars" onclick="myMenuFunction()"></i>
+        </div>
+    </nav>
+    
+
+
+    <!-- -------------- MAIN ---------------- -->
+    <main class="wrapper">
+       <!-- -------------- FEATURED BOX ---------------- -->
+       <section class="featured-box" id="home">
+          <div class="featured-text">
+            
+            <div class="featured-name">
+                <p>D' Robys Band <span class="typedText"></span></p>
+            </div>
+            <div class="featured-text-info">
+                <p>Agrupación Musical D' Robys Band, prestos para eventos musicales y afines.
+                </p>
+            </div>
+            <div class="featured-text-btn">
+                <button class="btn blue-btn"   onclick="window.location.href='https://www.facebook.com/drobysband.imponiendosuestilo';">Facebook</button>
+                <button class="btn" onclick="window.location.href='https://open.spotify.com/intl-es/artist/5MubJkuU7kghI13ltu5DFM?si=tQCFAVKASYajGF2eXLBfVg';" >Escúchanos<i class="uil uil-play"></i></button>
+            </div>
+            <div class="social_icons">
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/loschicosdelujo/" target="_blank" class="icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            
+                <!-- YouTube -->
+                <a href="https://www.youtube.com/@edwinmontatixe548" target="_blank" class="icon">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            
+                <!-- TikTok -->
+                <a href="https://www.tiktok.com/@robysband_oficial" target="_blank" class="icon">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+          </div>
+          <div class="featured-image">
+            <div class="image">
+                <img src="img/robysbandportada2.jpg" alt="avatar">
+            </div>
+          </div>
+          <div class="scroll-icon-box">
+            <a href="#about" class="scroll-btn">
+                <i class="uil uil-mouse-alt"></i>
+                <p>Deslizar</p>
+            </a>
+          </div>
+
+       </section>
+       <!-- -------------- ABOUT BOX ---------------- -->
+       <section class="section" id="about">
+        <div class="top-header">
+            <h1>Acerca de nosotros</h1>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="about-info">
+                    <h3>Introducción</h3>
+                    <p class="about-text" data-full-text="D' Robys Band es una agrupación musical única, oriunda de Machachi, Pichincha, Ecuador, que ha cautivado al público con su inconfundible estilo y energía. Fundada en 2005, esta banda está formada por cuatro hermanos, quienes desde su infancia compartieron el amor por la música. Patricio Montatixe, el mayor de los hermanos, es el pianista y director musical, guiando con su visión creativa la dirección de cada composición y presentación. Ramiro Montatixe, el segundo hermano, se encarga de los bajos, aportando una base sólida y profunda en cada pieza musical. Hugo Montatixe, el tercero de la familia, es la voz principal, quien con su carisma y potencia vocal da vida a cada canción, mientras que Darwin Montatixe, el menor de los hermanos, se encarga de la batería y la percusión mayor, marcando el ritmo y el pulso que hace vibrar a sus seguidores.
+                    ">
+                        <!-- Texto inicial generado dinámicamente -->
+                    </p>
+                    <button class="read-more-btn" style="display: none;">Leer más</button>
+                </div>
+            </div>
+            <div class="col">
+                <div class="about-info">
+                    <h3>Giras Internacionales</h3>
+                    <p class="about-text" data-full-text="A lo largo de su carrera, D' Robys Band ha tenido el privilegio de realizar giras internacionales que han sido todo un éxito. En 2016, la banda llevó su música a Aldana, Nariño, Colombia, en su primera gira internacional, seguida de una segunda gira en septiembre de ese mismo año, que los llevó a Perú, donde también dejaron huella. La banda continuó su expansión internacional con dos exitosas giras a Estados Unidos. La primera, en abril de 2024, y la segunda, en octubre del mismo año, organizada junto a Rivera Producciones, consolidando aún más su presencia en el escenario internacional.
+
+                    D' Robys Band sigue trabajando con pasión, esfuerzo y dedicación para llevar su música a todo el mundo, siempre manteniendo la esencia familiar que los ha unido desde sus primeros acordes.
+                    ">
+                    </p>
+                    <button class="read-more-btn" style="display: none;">Leer más</button>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+              <!-- -------------- VIDEO BOX ---------------- -->
+
+       <section class="video-slider" id="video-slider">
+        <h2 class="slider-title">Galería de Videos</h2>
+        <div class="slider-container">
+            <button class="slider-btn prev-btn">&#10094;</button>
+            <div class="slider-wrapper">
+                <div class="slider">
+                    <div class="video-item">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/7Y9Gq3BnWpc?si=p4VnsRu2DmdOxW1p" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>                    </div>
+                    <div class="video-item">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/jEjkxt1i0tU?si=N9-bHuVcasDPNycE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>                    </div>
+                    <div class="video-item">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/hQGbv5xmPHg?si=6Ius1gCyUfuk4-Jj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>                    </div>
+                </div>
+            </div>
+            <button class="slider-btn next-btn">&#10095;</button>
+        </div>
+    </section>
+    
+
+
+       <!-- -------------- PROJECT BOX ---------------- -->
+
+       <section class="section" id="projects">
+          <div class="top-header">
+              <h1>Trayectoria</h1>
+          </div>
+          <div class="project-container">
+            <div class="project-box">
+                <i class="uil uil-briefcase-alt"></i>
+                <h3>Completados</h3>
+                <label>Más de 1000 Eventos Completados con Éxitos</label>
+            </div>
+            <div class="project-box">
+                <i class="uil uil-users-alt"></i>
+                <h3>Clientes +1000</h3>
+                <label>Clientes de Ecuador, Estados Unidos, Colombia y Perú</label>
+            </div>
+            <div class="project-box">
+                <i class="uil uil-award"></i>
+                <h3>Experiencia</h3>
+                <label>Contamos con más de 20 años de experiencia</label>
+            </div>
+          </div>
+       </section>
+
+          <!-- -------------- MUSIC BOX ---------------- -->
+          <div class="top-header">
+            <h1>Escucha nuestros mejores éxitos</h1>
+        </div>
+          <section class="music-gallery" id="music-gallery">
+            <h2 class="gallery-title">Temas más sonados</h2>
+            <div class="gallery-container">
+                <!-- Álbumes -->
+                <div class="album" data-album="album1">
+                    <img src="img/portada.jpeg" alt="Álbum 1" class="album-cover">
+                    <h3 class="album-name">Playlist 1</h3>
+                </div>
+                <div class="album" data-album="album2">
+                    <img src="img/robysbandportada.jpg" alt="Álbum 2" class="album-cover">
+                    <h3 class="album-name">Playlist 2</h3>
+                </div>
+                <div class="album" data-album="album3">
+                    <img src="img/robysbandportada2.jpg" alt="Álbum 3" class="album-cover">
+                    <h3 class="album-name">Playlist 3</h3>
+                </div>
+            </div>
+        
+            <!-- Sección dinámica -->
+            <div class="album-details hidden">
+                <button class="close-btn">&times;</button>
+                <h3 class="album-title"></h3>
+                <ul class="song-list">
+                    <!-- Canciones se generan dinámicamente -->
+                </ul>
+                <audio controls class="audio-player">
+                    <source src="" type="audio/mpeg" id="audio-source">
+                    Tu navegador no soporta el elemento de audio.
+                </audio>
+            </div>
+        </section>
+        
+        
+        
+        
+
+       <!-- -------------- CONTACT BOX ---------------- -->
+
+       <section class="section" id="contact">
+          <div class="top-header">
+            <h1>Ponte en contacto con nosotros</h1>
+            <span>¿Tienes algún evento importante en mente? Contáctanos aquí</span>
+          </div>
+          <div class="row">
+             <div class="col">
+                <div class="contact-info">
+                    <h2>Contáctanos <i class="uil uil-corner-right-down"></i></h2>
+                    <p><i class="uil uil-envelope"></i> Correo Electrónico - Email: edwinmontatixe@hotmail.com</p>
+                    <p><i class="uil uil-phone"></i> Tel: +593 98 718 7948</p>
+                    <p><i class="uil uil-phone"></i> Tel: +593 98 799 8830</p>
+                </div>
+             </div>
+             <div class="col">
+                <div class="form-control">
+                    <form id="contactForm">
+                        <div class="form-inputs">
+                          <input type="text" name="nombre" class="input-field" placeholder="Nombre" required>
+                          <input type="email" name="email" class="input-field" placeholder="Email" required>
+                        </div>
+                        <div class="text-area">
+                          <textarea name="mensaje" placeholder="Mensaje" required></textarea>
+                        </div>
+                        <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+                        <div class="form-button">
+                          <button type="submit" class="btn">Enviar <i class="uil uil-message"></i></button>
+                        </div>
+                      </form>
+                      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                      
+                </div>
+       
+             </div>
+          </div>
+       </section>
+
+    </main>
+
+<!-- Botón flotante de WhatsApp -->
+<a href="https://wa.me/593987187948" class="whatsapp-btn" target="_blank">
+    <i class="uil uil-whatsapp"></i> <!-- Icono de WhatsApp -->
+</a>
+
+    <!-- --------------- FOOTER --------------- -->
+    <footer>
+        <div class="top-footer">
+            <p>D' Robys Band</p>
+        </div>
+        <div class="footer-social-icons">
+            <a href="https://www.facebook.com/drobysband.imponiendosuestilo" target="_blank" class="icon">
+                <i class="uil uil-facebook"></i>
+            </a>  
+            <a href="https://www.youtube.com/@edwinmontatixe548" target="_blank" class="icon">
+                <i class="uil uil-youtube"></i>
+            </a> 
+        </div>
+        <div class="bottom-footer">
+            <p>Copyright &copy; <a href="#home" style="text-decoration: none;">CodElegant</a> - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    </div>
+
+
+
+
+    <!-- ----- TYPING JS Link ----- -->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+       <!-- ----- SCROLL REVEAL JS Link----- -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+    <!-- ----- MAIN JS ----- -->
+    <script src="main.js"></script>
+</body>
+</html>

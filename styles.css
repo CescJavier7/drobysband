@@ -1,0 +1,1036 @@
+/* ----- POPPINS FONT Link ----- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* ----- VARIABLES ----- */
+:root{
+    --body-color: rgb(0, 0, 0); /* Fondo negro */
+    --color-white: rgb(247, 243, 243); /* Color blanco para el texto */
+    
+    --text-color-second: rgb(181, 194, 137); /* Un color claro que contraste bien con el negro */
+    --text-color-third: rgb(30, 159, 171); /* Un color brillante que contraste bien, como un verde azulado */
+    
+    --first-color: rgb(0, 74, 247); /* Un color vibrante que se ve bien sobre negro */
+    --first-color-hover: rgb(40, 91, 212); /* Un color más claro para hover que contrasta bien */
+    
+    --second-color: rgb(148, 75, 115); /* Un azul brillante que se ve bien sobre negro */
+    --third-color: rgb(192, 166, 49); /* Un color dorado que contrasta bien con el negro */
+    --first-shadow-color: rgba(255, 255, 255, 0.1); /* Sombra clara para dar profundidad */
+
+}
+
+/* ----- BASE ----- */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ----- SMOOTH SCROLL ----- */
+html{
+    scroll-behavior: smooth;
+}
+
+/* ----- CHANGE THE SCROLL BAR DESIGN ----- */
+::-webkit-scrollbar{
+    width: 10px;
+    border-radius: 25px;
+}
+::-webkit-scrollbar-track{
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb{
+    background: #ccc;
+    border-radius: 30px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: #bbb;
+}
+
+
+/* ---##-- REUSABLE CSS --##--- */
+
+/* ----- GLOBAL BUTTON DESIGN ----- */
+
+
+.btn{
+    font-weight: 500;
+    padding: 12px 20px;
+    color: var(--color-white);
+    background: #c4302b;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .4s;
+}
+.btn>i{
+    margin-left: 10px;
+}
+.btn:hover{
+    background: var(--second-color);
+    color: var(--color-white);
+}
+
+/* ----- GLOBAL ICONS DESIGN ----- */
+i{
+    font-size: 20px;
+}
+
+/* ------- BASE -------- */
+body{
+    background: var(--body-color);
+}
+.container{
+    width: 100%;
+    position: relative;
+}
+
+/* ----- NAVIGATION BAR ----- */
+nav{
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 90px;
+    line-height: 90px;
+    background: var(--body-color);
+    padding-inline: 9vw;
+    transition: .3s;
+    z-index: 100;
+}
+.nav-logo{
+   position: relative;
+}
+.nav-name{
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--text-color-third);
+}
+.nav-logo span{
+    position: absolute;
+    top: -15px;
+    right: -20px;
+    font-size: 5em;
+    color: var(--text-color-second);
+}
+.nav-menu, .nav_menu_list{
+    display: flex;
+}
+.nav-menu .nav_list{
+    list-style: none;
+    position: relative;
+}
+.nav-link{
+    text-decoration: none;
+    color: var(--text-color-third);
+    font-weight: 500;
+    padding-inline: 15px;
+    margin-inline: 20px;
+}
+.nav-menu-btn{
+    display: none;
+    color: var(--color-white);
+}
+.nav-menu-btn i{
+    font-size: 30px;
+    cursor: pointer;
+}
+
+
+/* Estilo para el botón de cierre */
+.close-btn {
+    display: none;
+    position: absolute;
+    top: 80px; /* Mueve la "X" más abajo si es necesario */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    cursor: pointer;
+}
+
+
+
+/* Estilo para cuando el menú está abierto */
+.nav-menu.responsive .close-btn {
+    display: block; /* Mostrar la X cuando el menú es abierto */
+}
+
+
+.active-link{
+    position: relative;
+    color: var(--first-color);
+    transition: .3;
+}
+.active-link::after{
+    content: '';
+    position: absolute;
+    left: 45%;
+    bottom: -20px;
+    transform: translate(-50%, -50%);
+    width: 5px;
+    height: 5px;
+    background: var(--second-color);
+    border-radius: 50%;
+}
+
+/* ----- WHATSAPP BUTTOMN ----- */
+
+/* Estilo para el botón flotante de WhatsApp */
+.whatsapp-btn {
+    position: fixed;
+    bottom: 90px;  /* Espaciado desde la parte inferior */
+    right: 40px;   /* Espaciado desde la parte derecha */
+    background-color: #25D366;  /* Color de fondo de WhatsApp */
+    border-radius: 50%;  /* Forma circular */
+    padding: 15px;  /* Tamaño del botón */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Sombra para darle efecto de flotante */
+    font-size: 30px;  /* Tamaño del icono */
+    color: white;  /* Color del icono */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;  /* Elimina el subrayado del enlace */
+    transition: all 0.3s ease; /* Transición suave para efectos de hover */
+    z-index: 1000;  /* Asegura que esté por encima de otros elementos */
+    animation: pulse 1.5s infinite;  /* Agregar animación de pulsación */
+}
+
+/* Animación de pulsación */
+@keyframes pulse {
+    0% {
+        transform: scale(1);  /* Tamaño original */
+    }
+    50% {
+        transform: scale(1.1);  /* Aumenta el tamaño */
+    }
+    100% {
+        transform: scale(1);  /* Vuelve al tamaño original */
+    }
+}
+
+/* Efecto hover (cuando el usuario pasa el mouse por encima) */
+.whatsapp-btn:hover {
+    background-color: #128C7E;  /* Cambia el color de fondo al pasar el mouse */
+    transform: scale(1.1);  /* Aumenta ligeramente el tamaño del botón */
+}
+
+/* Estilo para el icono dentro del botón */
+.whatsapp-btn i {
+    font-size: 34px;  /* Ajusta el tamaño del icono */
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+    .whatsapp-btn {
+        bottom: 15px;  /* Menos espacio desde la parte inferior */
+        right: 15px;   /* Menos espacio desde la parte derecha */
+        padding: 12px;  /* Ajuste del tamaño del botón */
+    }
+
+    .whatsapp-btn i {
+        font-size: 28px;  /* Icono ligeramente más grande en pantallas pequeñas */
+    }
+}
+
+/* Para dispositivos muy pequeños (por ejemplo, teléfonos en orientación vertical) */
+@media (max-width: 480px) {
+    .whatsapp-btn {
+        bottom: 10px;  /* Asegura que el botón no esté demasiado pegado al borde */
+        right: 10px;
+        padding: 10px;  /* Botón más pequeño */
+    }
+
+    .whatsapp-btn i {
+        font-size: 22px;  /* Icono más pequeño */
+    }
+}
+
+/* ----- WRAPPER DESIGN ----- */
+.wrapper{
+    padding-inline: 10vw;
+}
+
+/* ----- FEATURED BOX ----- */
+.featured-box{
+    position: relative;
+    display: flex;
+    height: 100vh;
+    min-height: 700px;
+}
+
+/* ----- FEATURED TEXT BOX ----- */
+.featured-text{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    min-height: 80vh;
+    flex-direction: column;
+    width: 50%;
+    padding-left: 20px;
+}
+.featured-text-card span{
+    background: var(--third-color);
+    color: var(--color-white);
+    padding: 3px 8px;
+    font-size: 12px;
+    border-radius: 5px;
+}
+.featured-name{
+    font-size: 50px;
+    font-weight: 600;
+    color: var(--text-color-second);
+    margin-block: 20px;
+}
+.typedText{
+    text-transform: capitalize;
+    color: var(--text-color-third);
+}
+.featured-text-info{
+    font-size: 15px;
+    margin-bottom: 30px;
+    color: var(--text-color-second);
+}
+.featured-text-btn{
+    display: flex;
+    gap: 20px;
+}
+.featured-text-btn>.blue-btn{
+    background: var(--first-color);
+    color: var(--color-white);
+}
+.featured-text-btn>.blue-btn:hover{
+    background: var(--first-color-hover);
+}
+.social_icons{
+    display: flex;
+    margin-top: 3em;
+    gap: 30px;
+    color: var(--color-white);
+}
+.icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0px 2px 5px 0px rgb(255, 255, 255);
+    cursor:crosshair;
+    color:azure;
+    
+}
+.icon:hover{
+    color: var(--third-color);
+}
+
+/* ----- FEATURED IMAGE BOX ----- */
+.featured-image{
+    display: flex;
+    justify-content: right;
+    align-content: center;
+    min-height: 80vh;
+    width: 50%;
+}
+.image{
+    margin: auto 0;
+    width: 380px;
+    height: 380px;
+    border-radius: 55% 45% 55% 45%;
+    overflow: hidden;
+    animation: imgFloat 7s ease-in-out infinite;
+}
+.image img{
+    width: 380px;
+    height: 380px;
+    object-fit: cover;
+}
+@keyframes imgFloat {
+    50%{
+        transform: translateY(10px);
+        border-radius: 45% 55% 45% 55%;
+    }
+}
+.scroll-btn{
+   position: absolute;
+   bottom: 0;
+   left: 50%;
+   translate: -50%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 150px;
+   height: 50px;
+   gap: 5px;
+   text-decoration: none;
+   color: var(--color-white );
+   background: var(--second-color);
+   border-radius: 30px;
+   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+}
+.scroll-btn i{
+    font-size: 20px;
+}
+
+/* ----- MAIN BOX ----- */
+.section{
+    padding-block: 5em;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 50px;
+}
+.col{
+    display: flex;
+    width: 50%;
+}
+
+/* -- ## --- RESUABLE CSS -- ## -- */
+.top-header{
+    text-align: center;
+    margin-bottom: 5em;
+}
+.top-header h1{
+    font-weight: 600;
+    color: var(--text-color-second);
+    margin-bottom: 10px;
+}
+.top-header span{
+    color: #999;
+}
+h3{
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-color-second);
+    margin-bottom: 15px;
+}
+
+/* ----- ABOUT INFO ----- */
+.about-info {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px 20px 20px;
+    width: 100%;
+    background: var(--color-white);
+    box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
+    border-radius: 20px;
+    transition: max-height 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.about-info h3 {
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.about-info p {
+    text-align: justify;
+    font-size: 15px;
+    color: #777;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+.read-more-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    display: none;
+    align-self: flex-end;
+}
+
+.read-more-btn:hover {
+    background-color: #0056b3;
+}
+
+#about .about-text {
+    max-height: 100px;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+#about .about-text.expanded {
+    max-height:max-content;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .about-info {
+        padding: 20px;
+    }
+
+    .about-info p {
+        font-size: 14px;
+    }
+
+    .read-more-btn {
+        font-size: 12px;
+    }
+}
+
+
+/* ----- ABOUT / SKILLS BOX ----- */
+.skills-box{
+    margin: 10px;
+}
+.skills-header{
+    margin-bottom: 30px;
+}
+.skills-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+.skills-list span{
+    font-size: 14px;
+    background: var(--first-color);
+    color: var(--color-white);
+    padding: 2px 10px;
+    border-radius: 5px;
+}
+
+/* ----- PROJECTS BOX ----- */
+.project-container{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.project-box{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 30%;
+    height: 250px;
+    background: var(--color-white);
+    border-radius: 20px;
+    box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
+    overflow: hidden;
+}
+.project-box>i{
+    font-size: 50px;
+    color: #00B5E7;
+    margin-bottom: 25px;
+}
+.project-box label{
+    font-size: 15px;
+    color: #777;
+}
+.project-box::after, .contact-info::after{
+    content: "";
+    position: absolute;
+    bottom: -100%;
+    background: var(--second-color);
+    width: 100%;
+    height: 100%;
+    transition: .4s;
+    z-index: 1;
+}
+.project-box:hover.project-box::after,
+.contact-info:hover.contact-info::after{
+    bottom: 0;
+}
+.project-box:hover.project-box i,
+.project-box:hover.project-box>h3,
+.project-box:hover.project-box>label{
+    color: var(--color-white);
+    z-index: 2;
+}
+
+
+/* ----- VIDEO SECTION ----- */
+
+/* Contenedor general */
+.video-slider {
+    background: url('img/fondomusica.jpg') no-repeat center center/cover;
+    padding: 40px;
+    border: 2px solid white;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Título */
+.slider-title {
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+/* Contenedor del slider */
+.slider-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* Botones de navegación */
+.slider-btn {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: background 0.3s ease;
+}
+
+.slider-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+/* Wrapper y slider */
+.slider-wrapper {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Videos */
+.video-item {
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.video-item iframe {
+    width: 100%;
+    height: 315px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .slider-title {
+        font-size: 1.5rem;
+    }
+
+    .video-item iframe {
+        height: 200px;
+    }
+}
+
+
+/* ----- MUSIC SECTION ----- */
+
+/* Contenedor general */
+.music-gallery {
+    background: url('img/fondomusica.jpg') no-repeat center center/cover;
+    padding: 40px;
+    border: 2px solid white;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+/* Álbumes */
+.gallery-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.album {
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.album:hover {
+    transform: scale(1.1);
+}
+
+.album img {
+    width: 150px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.album-name {
+    margin-top: 10px;
+}
+
+/* Sección dinámica */
+.album-details {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.album-details.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.album-details .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+.song-list {
+    list-style: none;
+    margin: 20px 0;
+    padding: 0;
+}
+
+.song-list li {
+    margin: 10px 0;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.song-list li:hover {
+    color: #00ffcc;
+}
+
+.audio-player {
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Álbum seleccionado */
+.gallery-container.hidden {
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+    
+    
+/* ----- CONTACT BOX ----- */
+.contact-info{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 30px;
+    width: 100%;
+    height: 315px;
+    background: var(--second-color);
+    border-radius: 10px;
+    box-shadow: 1px 8px 10px 2px var(--first-shadow-color);
+    overflow: hidden;
+}
+.contact-info>h2{
+    color: var(--color-white);
+    margin-bottom: 20px;
+}
+.contact-info>p{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--color-white);
+    margin-block: 5px;
+}
+.contact-info p>i{
+    font-size: 18px;
+}
+.contact-info::after{
+    background: var(--color-white);
+}
+.contact-info:hover.contact-info h2,
+.contact-info:hover.contact-info p,
+.contact-info:hover.contact-info i{
+    color: #777;
+    z-index: 2;
+}
+
+/* ----- CONTACT FORM ----- */
+.form-control {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor de campos de entrada */
+.form-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+/* Estilo de los campos de entrada */
+.input-field, textarea {
+    width: 100%;
+    height: 50px;
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #333;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+textarea {
+    height: 150px;
+    resize: none;
+}
+
+/* Efecto de foco en los campos */
+.input-field:focus, 
+textarea:focus {
+    border-color: #00b5e7;
+    box-shadow: 0 0 5px rgba(0, 181, 231, 0.5);
+    outline: none;
+}
+
+/* Botón de enviar */
+.form-button>.btn {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--second-color, #007BFF);
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.form-button>.btn:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+.form-button i {
+    margin-left: 8px;
+    font-size: 20px;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .form-control {
+        padding: 15px;
+    }
+
+    .form-inputs {
+        gap: 10px;
+    }
+
+    .input-field, textarea {
+        font-size: 14px;
+    }
+
+    .form-button>.btn {
+        font-size: 16px;
+    }
+}
+
+
+/* ----- FOOTER BOX ----- */
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 30px;
+    background: var(--second-color);
+    padding-block: 40px 60px;
+}
+.top-footer p{
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--color-white);
+}
+.middle-footer .footer-menu{
+    display: flex;
+}
+.footer_menu_list{
+    list-style: none;
+}
+.footer_menu_list a{
+    text-decoration: none;
+    color: var(--third-color);
+    font-weight: 500;
+    margin-inline: 20px;
+}
+.footer-social-icons{
+    display: flex;
+    gap: 30px;   
+}
+.bottom-footer{
+    font-size: 14px;
+    margin-top: 10px;
+    color: var(--color-white);
+}
+
+
+/* ----- MEDIA QUERY == 1024px / RESPONSIVE ----- */
+@media only screen and (max-width: 1024px){
+    .featured-text{
+        padding: 0;
+    }
+    .image, .image img{
+        width: 320px;
+        height: 320px;
+    }
+}
+
+/* ----- MEDIA QUERY == 900px / RESPONSIVE ----- */
+@media only screen and (max-width: 900px) {
+    .nav-button{
+        display: none;
+    }
+    .nav-menu.responsive{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 999;
+        }
+    .nav-menu{
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(20px);
+        width: 100%;
+        min-height: 450px;
+        height: 90vh;
+        transition: .3s;
+    }
+    .nav_menu_list{
+        flex-direction: column;
+    }
+    .nav-menu-btn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .featured-box{
+        flex-direction: column;
+        justify-content: center;
+        height: 100vh;
+    }
+    .featured-text{
+        width: 100%;
+        order: 2;
+        justify-content: center;
+        align-content: flex-start;
+        min-height: 60vh;
+    }
+    .social_icons{
+        margin-top: 2em;
+    }
+    .featured-image{
+        order: 1;
+        justify-content: center;
+        min-height: 150px;
+        width: 100%;
+        margin-top: 65px;
+    }
+    .image, .image img{
+        width: 150px;
+        height: 150px;
+    }
+    .row{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 50px;
+    }
+    .col{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    .about-info, .contact-info{
+        width: 100%;
+    }
+    .project-container{
+        justify-content: center;
+    }
+    .project-box{
+        width: 80%;
+    }
+
+}
+
+/* ----- MEDIA QUERY == 540px / RESPONSIVE ----- */
+
+@media only screen and (max-width: 540px){
+    .featured-name{
+        font-size: 40px;
+    }
+    .project-box{
+        width: 100%;
+    }
+    .form-inputs{
+        flex-direction: column;
+    }
+    .input-field{
+        width: 100%;
+    }
+}
