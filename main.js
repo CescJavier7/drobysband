@@ -257,62 +257,58 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-
-(function () {
+  // Inicialización de EmailJS con tu User ID
+  (function() {
     emailjs.init("VdoOllUa1qXpVytJb"); // Reemplaza "YOUR_USER_ID" con tu ID de usuario de EmailJS
   })();
-  
-  document.getElementById("contactForm").addEventListener("submit", function (event) {
-    event.preventDefault(); // Evitar el envío predeterminado
-  
-    // Validar los campos
+
+  // Validar el formulario y enviar
+  document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Previene el envío por defecto del formulario
+
+    // Recoge los valores de los campos del formulario
     const nombre = document.querySelector('input[name="nombre"]').value.trim();
     const email = document.querySelector('input[name="email"]').value.trim();
     const mensaje = document.querySelector('textarea[name="mensaje"]').value.trim();
-    const recaptchaResponse = grecaptcha.getResponse();
-  
-    if (!nombre || !email || !mensaje) {
-      alert("Por favor, completa todos los campos.");
+
+    // Validar campos
+    if (!nombre) {
+      alert('Por favor, ingresa tu nombre.');
       return;
     }
-  
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {
-      alert("Por favor, ingresa un correo electrónico válido.");
+
+    if (!validarEmail(email)) {
+      alert('Por favor, ingresa un email válido.');
       return;
     }
-  
-    if (mensaje.length < 10) {
-      alert("El mensaje debe contener al menos 10 caracteres.");
+
+    if (!mensaje) {
+      alert('Por favor, escribe un mensaje.');
       return;
     }
-  
-    if (!recaptchaResponse) {
-      alert("Por favor, completa el reCAPTCHA para continuar.");
-      return;
-    }
-  
-    // Datos para enviar a través de EmailJS
+
+    // Crea un objeto con los datos del formulario
     const templateParams = {
-      nombre: nombre,
-      email: email,
-      mensaje: mensaje,
+      nombre: nombre,       // Vinculado a {{nombre}} en la plantilla
+      email: email,         // Vinculado a {{email}} en la plantilla
+      mensaje: mensaje      // Vinculado a {{mensaje}} en la plantilla
     };
-  
-    // Enviar correo con EmailJS
-    emailjs
-      .send("service_4de2xgd", "template_uhcs7wq", templateParams)
-      .then(
-        function (response) {
-          console.log("Éxito:", response);
-          alert("¡Mensaje enviado con éxito!");
-          document.getElementById("contactForm").reset(); // Limpiar formulario
-          grecaptcha.reset(); // Resetear reCAPTCHA
-        },
-        function (error) {
-          console.error("Error:", error);
-          alert("Hubo un error al enviar el mensaje. Intenta de nuevo.");
-        }
-      );
+
+    // Envía los datos a través de EmailJS
+    emailjs.send('service_4de2xgd', 'template_uhcs7wq', templateParams)
+      .then(function(response) {
+        console.log('Éxito:', response);
+        alert('¡Mensaje enviado con éxito!');
+        // Limpiar el formulario después de enviarlo
+        document.getElementById('contactForm').reset();
+      }, function(error) {
+        console.error('Error:', error);
+        alert('Hubo un error al enviar el mensaje. Intenta de nuevo.');
+      });
   });
-  
+
+  // Función para validar el formato del email
+  function validarEmail(email) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Expresión regular para formato de email
+    return regex.test(email);
+  }
