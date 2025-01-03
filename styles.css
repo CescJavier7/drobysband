@@ -137,6 +137,35 @@ nav{
 }
 
 
+/* Estilo para el botón de Spotify */
+
+
+
+
+
+.spotify-button {
+    background-color: #1DB954; /* Color verde de Spotify */
+    color: white; /* Color del texto */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre el texto y el ícono */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.spotify-button:hover {
+    background-color: #1ed760; /* Color verde más claro */
+}
+
+.spotify-button i {
+    font-size: 20px; /* Tamaño del ícono */
+}
+
+
 /* Estilo para el botón de cierre */
 .close-btn {
     display: none;
@@ -207,6 +236,8 @@ nav{
         transform: scale(1);  /* Vuelve al tamaño original */
     }
 }
+
+
 
 /* Efecto hover (cuando el usuario pasa el mouse por encima) */
 .whatsapp-btn:hover {
