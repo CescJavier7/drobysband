@@ -97,7 +97,7 @@
           </div>
           <div class="featured-image">
             <div class="image">
-                <img src="img/robysbandportada2.jpg" alt="avatar">
+                <img src="img/portada.jpeg" alt="avatar">
             </div>
           </div>
           <div class="scroll-icon-box">
@@ -187,38 +187,22 @@
        </section>
 
           <!-- -------------- MUSIC BOX ---------------- -->
-          <div class="top-header">
-            <h1>Escucha nuestros mejores éxitos</h1>
-        </div>
-          <section class="music-gallery" id="music-gallery">
-            <h2 class="gallery-title">Temas más sonados</h2>
-            <div class="gallery-container">
-                <!-- Álbumes -->
-                <div class="album" data-album="album1">
-                    <img src="img/portada.jpeg" alt="Álbum 1" class="album-cover">
-                    <h3 class="album-name">Playlist 1</h3>
+          <section class="music-section">
+            <h1 class="section-title">Temas Más Sonados</h1>
+            <div class="song-container">
+                <button class="nav-btn" id="prev-btn">&lt;</button>
+                <div class="song">
+                    <div class="song-image-container">
+                        <img id="song-image" src="img/portada.jpeg" alt="Canción">
+                        <div class="play-overlay" id="play-overlay"></div>
+                    </div>
+                    <h2 id="song-title">Selecciona una canción</h2>
+                    <audio id="audio-player" controls>
+                        <source id="audio-source" src="" type="audio/mpeg">
+                        Tu navegador no soporta el reproductor de audio.
+                    </audio>
                 </div>
-                <div class="album" data-album="album2">
-                    <img src="img/robysbandportada.jpg" alt="Álbum 2" class="album-cover">
-                    <h3 class="album-name">Playlist 2</h3>
-                </div>
-                <div class="album" data-album="album3">
-                    <img src="img/robysbandportada2.jpg" alt="Álbum 3" class="album-cover">
-                    <h3 class="album-name">Playlist 3</h3>
-                </div>
-            </div>
-        
-            <!-- Sección dinámica -->
-            <div class="album-details hidden">
-                <button class="close-btn">&times;</button>
-                <h3 class="album-title"></h3>
-                <ul class="song-list">
-                    <!-- Canciones se generan dinámicamente -->
-                </ul>
-                <audio controls class="audio-player">
-                    <source src="" type="audio/mpeg" id="audio-source">
-                    Tu navegador no soporta el elemento de audio.
-                </audio>
+                <button class="nav-btn" id="next-btn">&gt;</button>
             </div>
         </section>
         
