@@ -22,8 +22,10 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+    max-width: 100vw; /* Limita el ancho máximo al viewport */
+    overflow-x: hidden; /* Prevenir desbordes horizontales */
 }
 
 /* ----- SMOOTH SCROLL ----- */
@@ -79,6 +81,8 @@ i{
 /* ------- BASE -------- */
 body{
     background: var(--body-color);
+    overflow-y: hidden; /* Elimina el desplazamiento vertical */
+
 }
 .container{
     width: 100%;
@@ -207,21 +211,22 @@ nav{
 /* Estilo para el botón flotante de WhatsApp */
 .whatsapp-btn {
     position: fixed;
-    bottom: 90px;  /* Espaciado desde la parte inferior */
-    right: 40px;   /* Espaciado desde la parte derecha */
-    background-color: #25D366;  /* Color de fondo de WhatsApp */
-    border-radius: 50%;  /* Forma circular */
-    padding: 15px;  /* Tamaño del botón */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Sombra para darle efecto de flotante */
-    font-size: 30px;  /* Tamaño del icono */
-    color: white;  /* Color del icono */
-    display: flex;
-    align-items: center;
+    bottom: 90px; /* Espaciado desde la parte inferior */
+    right: 40px;  /* Espaciado desde la parte derecha */
+    background-color: #25D366; /* Color de fondo de WhatsApp */
+    border-radius: 50%; /* Forma circular */
+    width: 60px; /* Ancho del botón */
+    height: 60px; /* Altura del botón (igual que el ancho para que sea un círculo) */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para efecto flotante */
+    display: flex; 
+    align-items: center; 
     justify-content: center;
-    text-decoration: none;  /* Elimina el subrayado del enlace */
-    transition: all 0.3s ease; /* Transición suave para efectos de hover */
-    z-index: 1000;  /* Asegura que esté por encima de otros elementos */
-    animation: pulse 1.5s infinite;  /* Agregar animación de pulsación */
+    font-size: 30px; /* Tamaño del icono */
+    color: white; /* Color del icono */
+    text-decoration: none; /* Elimina subrayado del enlace */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    animation: pulse 1.5s infinite; /* Animación de pulsación */
 }
 
 /* Animación de pulsación */
@@ -250,31 +255,8 @@ nav{
     font-size: 34px;  /* Ajusta el tamaño del icono */
 }
 
-/* Responsividad para pantallas pequeñas */
-@media (max-width: 768px) {
-    .whatsapp-btn {
-        bottom: 15px;  /* Menos espacio desde la parte inferior */
-        right: 15px;   /* Menos espacio desde la parte derecha */
-        padding: 12px;  /* Ajuste del tamaño del botón */
-    }
 
-    .whatsapp-btn i {
-        font-size: 28px;  /* Icono ligeramente más grande en pantallas pequeñas */
-    }
-}
 
-/* Para dispositivos muy pequeños (por ejemplo, teléfonos en orientación vertical) */
-@media (max-width: 480px) {
-    .whatsapp-btn {
-        bottom: 10px;  /* Asegura que el botón no esté demasiado pegado al borde */
-        right: 10px;
-        padding: 10px;  /* Botón más pequeño */
-    }
-
-    .whatsapp-btn i {
-        font-size: 22px;  /* Icono más pequeño */
-    }
-}
 
 /* ----- WRAPPER DESIGN ----- */
 .wrapper{
@@ -360,7 +342,7 @@ nav{
     display: flex;
     justify-content: right;
     align-content: center;
-    min-height: 80vh;
+    min-height: 70vh;
     width: 50%;
 }
 .image{
@@ -496,19 +478,7 @@ h3{
 }
 
 /* Responsive styles */
-@media screen and (max-width: 768px) {
-    .about-info {
-        padding: 20px;
-    }
 
-    .about-info p {
-        font-size: 14px;
-    }
-
-    .read-more-btn {
-        font-size: 12px;
-    }
-}
 
 
 /* ----- ABOUT / SKILLS BOX ----- */
@@ -559,6 +529,7 @@ h3{
 }
 .project-box label{
     font-size: 15px;
+    padding: 10px;
     color: #777;
 }
 .project-box::after, .contact-info::after{
@@ -670,115 +641,194 @@ h3{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-/* Responsividad */
-@media (max-width: 768px) {
-    .slider-title {
-        font-size: 1.5rem;
-    }
-
-    .video-item iframe {
-        height: 200px;
-    }
-}
-
 
 /* ----- MUSIC SECTION ----- */
+/* Sección general */
+/* General */
 
-/* Contenedor general */
-.music-gallery {
-    background: url('img/fondomusica.jpg') no-repeat center center/cover;
-    padding: 40px;
+
+.music-section {
+    padding: 40px 20px;
+    max-width: 90%;
+    margin: 20px auto;
+    background: rgba(0, 0, 0, 0.9);
     border: 2px solid white;
-    border-radius: 10px;
     color: white;
     text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
     position: relative;
 }
 
-/* Álbumes */
-.gallery-container {
+.section-title {
+    font-size: 26px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 2px solid white;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.song-container {
     display: flex;
+    align-items: center;
     justify-content: center;
     gap: 20px;
+    flex-wrap: nowrap;
+    position: relative;
 }
 
-.album {
+.nav-btn {
+    font-size: 20px;
+    padding: 12px;
+    background: var(--second-color);
+    border: none;
+    color: rgb(255, 255, 255);
     cursor: pointer;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.album:hover {
-    transform: scale(1.1);
-}
-
-.album img {
-    width: 150px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-}
-
-.album-name {
-    margin-top: 10px;
-}
-
-/* Sección dinámica */
-.album-details {
+    border-radius: 50%;
+    transition: transform 0.2s ease, background 0.2s ease;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.8);
-    border-radius: 10px;
-    padding: 20px;
+    top: 40%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.nav-btn:hover {
+    transform: translateY(-50%) scale(1.2);
+    background: rgb(177, 24, 24);
+}
+
+#prev-btn {
+    left: -10px;
+}
+
+#next-btn {
+    right: -10px;
+}
+
+.song {
+    text-align: center;
+    flex: 1 1 auto;
+    max-width: 300px;
+}
+
+.song-image-container {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 2px solid white;
+    transition: transform 0.3s ease;
+}
+
+.song-image-container:hover {
+    transform: scale(1.05);
+}
+
+#song-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.play-overlay:hover {
+    opacity: 1;
+}
+
+#song-title {
+    margin: 15px 0;
+    font-size: 20px;
+}
+
+#audio-player {
     width: 90%;
     max-width: 500px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    background-color: #1E1E1E; /* Fondo oscuro elegante */
+    color: white; /* Texto claro para buen contraste */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para efecto flotante */
+    padding: none; /* Espaciado interno */
+    flex-direction: column; /* Acomoda los elementos verticalmente */
+    align-items: center; /* Centra los elementos */
+    font-family: 'Arial', sans-serif; /* Fuente legible */
 }
 
-.album-details.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.album-details .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    font-size: 24px;
+/* Estilo para botones del reproductor */
+#audio-player button {
+    background-color: #25D366; /* Verde WhatsApp */
     color: white;
+    border: none;
+    border-radius: 50%; /* Botones circulares */
+    padding: 10px;
+    margin: 5px;
     cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s; /* Transición suave */
 }
 
-.song-list {
-    list-style: none;
-    margin: 20px 0;
-    padding: 0;
+#audio-player button:hover {
+    background-color: #1EBE5F; /* Color más oscuro al pasar el cursor */
+    transform: scale(1.1); /* Efecto de zoom */
 }
 
-.song-list li {
-    margin: 10px 0;
-    cursor: pointer;
-    transition: color 0.2s ease;
-}
-
-.song-list li:hover {
-    color: #00ffcc;
-}
-
-.audio-player {
+/* Barra de progreso */
+#audio-player progress {
     width: 100%;
-    margin-top: 20px;
+    height: 8px;
+    border-radius: 5px; /* Bordes redondeados */
+    appearance: none; /* Elimina el estilo predeterminado del navegador */
+    background-color: #333; /* Fondo oscuro */
+    overflow: hidden;
 }
 
-/* Álbum seleccionado */
-.gallery-container.hidden {
-    opacity: 0.2;
-    pointer-events: none;
+#audio-player progress::-webkit-progress-bar {
+    background-color: #333; /* Fondo para navegadores WebKit */
 }
+
+#audio-player progress::-webkit-progress-value {
+    background-color: #25D366; /* Color de progreso */
+    border-radius: 5px; /* Mantener bordes redondeados */
+}
+
+#audio-player progress::-moz-progress-bar {
+    background-color: #25D366; /* Progreso para Firefox */
+}
+
+/* Texto adicional */
+#audio-player p {
+    margin: 10px 0 0 0; /* Espaciado */
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+    color: #bbb; /* Color gris claro */
+}
+
+.song h2 {
+    margin-top: 10px;
+    font-size: 18px;
+    color: var(--third-color);
+}
+
+
 
     
     
@@ -896,24 +946,6 @@ textarea:focus {
     font-size: 20px;
 }
 
-/* RESPONSIVE DESIGN */
-@media (max-width: 768px) {
-    .form-control {
-        padding: 15px;
-    }
-
-    .form-inputs {
-        gap: 10px;
-    }
-
-    .input-field, textarea {
-        font-size: 14px;
-    }
-
-    .form-button>.btn {
-        font-size: 16px;
-    }
-}
 
 
 /* ----- FOOTER BOX ----- */
@@ -954,16 +986,126 @@ footer{
 }
 
 
-/* ----- MEDIA QUERY == 1024px / RESPONSIVE ----- */
-@media only screen and (max-width: 1024px){
-    .featured-text{
-        padding: 0;
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .form-control {
+        width: 100%; /* Asegura que ocupe todo el ancho del contenedor */
+        padding: 12px; /* Reduce el padding para dispositivos pequeños */
+        box-sizing: border-box; /* Asegura que el padding no afecte el ancho */
     }
-    .image, .image img{
-        width: 320px;
-        height: 320px;
+
+    .form-inputs {
+        display: flex;
+        flex-direction: column; /* Alineación vertical */
+        gap: 8px; /* Espaciado más adecuado */
+    }
+
+    .input-field, textarea {
+        font-size: 13px; /* Ajusta el tamaño del texto */
+        width: 100%; /* Ocupa todo el ancho disponible */
+    }
+
+    .form-button>.btn {
+        font-size: 15px; /* Reduce ligeramente el tamaño del botón */
+        padding: 10px; /* Ajusta el tamaño para una mejor experiencia */
     }
 }
+
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .slider-title {
+        font-size: 1.3rem; /* Ajusta ligeramente el tamaño del título */
+        margin-bottom: 10px; /* Añade espaciado para mejor visualización */
+    }
+
+    .video-item iframe {
+        width: 100%; /* Ocupa todo el ancho del contenedor */
+        height: auto; /* Ajusta la altura proporcionalmente */
+        aspect-ratio: 16 / 9; /* Asegura un aspecto adecuado */
+    }
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .about-info {
+        padding: 15px; /* Ajusta el espaciado para dispositivos pequeños */
+    }
+
+    .about-info p {
+        font-size: 13px; /* Ajusta el tamaño del texto */
+        line-height: 1.6; /* Mejora la legibilidad */
+    }
+
+    .read-more-btn {
+        font-size: 11px; /* Reduce ligeramente el tamaño */
+        padding: 5px 10px; /* Mejora la interacción en pantallas táctiles */
+    }
+}
+
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+    .whatsapp-btn {
+        bottom: 10px; /* Reduce el espacio inferior */
+        right: 10px; /* Ajusta la posición lateral */
+        width: 50px; /* Asegura proporciones circulares */
+        height: 50px; /* Asegura proporciones circulares */
+        padding: 0; /* Elimina padding que distorsiona la forma */
+        border-radius: 50%; /* Garantiza que sea circular */
+    }
+
+    .whatsapp-btn i {
+        font-size: 24px; /* Ajusta el tamaño del icono */
+    }
+}
+
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .song-container {
+        display: flex;
+        flex-direction: column; /* Alineación vertical */
+        gap: 8px; /* Espaciado adecuado */
+    }
+
+    .nav-btn {
+        font-size: 20px; /* Ajusta el tamaño del botón */
+        padding: 6px; /* Reduce el padding */
+    }
+
+    #prev-btn {
+        left: 8px; /* Ajusta la posición */
+    }
+
+    #next-btn {
+        right: 8px; /* Ajusta la posición */
+    }
+
+    .song-image-container {
+        width: 150px; /* Reduce el tamaño */
+        height: 150px; /* Mantiene proporciones cuadradas */
+    }
+
+    #song-title {
+        font-size: 16px; /* Ajusta el tamaño del texto */
+        text-align: center; /* Centra el texto */
+    }
+}
+
+
+/* ----- MEDIA QUERY == 1024px / RESPONSIVE ----- */
+@media (max-width: 1024px) {
+    .featured-text {
+        padding: 0 15px; /* Más espaciado lateral para mayor legibilidad */
+    }
+    .image, .image img {
+        max-width: 100%; /* Ajusta las imágenes al contenedor */
+        height: auto;    /* Mantén las proporciones */
+    }
+}
+
 
 /* ----- MEDIA QUERY == 900px / RESPONSIVE ----- */
 @media only screen and (max-width: 900px) {
@@ -1065,3 +1207,28 @@ footer{
         width: 100%;
     }
 }
+
+
+
+
+/* Para dispositivos muy pequeños (por ejemplo, teléfonos en orientación vertical) */
+@media (max-width: 480px) {
+    .whatsapp-btn {
+        bottom: 10px; /* Ajusta la posición */
+        right: 10px;
+        width: 40px;
+        height: 40px;
+    }
+    .whatsapp-btn i {
+        font-size: 18px; /* Ajusta el tamaño del icono */
+    }
+    .input-field, textarea {
+        font-size: 12px; /* Reduce el tamaño de los textos */
+    }
+    .read-more-btn {
+        font-size: 10px; /* Ajusta el tamaño del botón */
+    }
+}
+
+
+
