@@ -82,6 +82,7 @@ if (typeof ScrollReveal !== "undefined") {
 
     srLeft.reveal(".about-info", { delay: 100 });
     srLeft.reveal(".contact-info", { delay: 100 });
+    srLeft.reveal(".music-section", { delay: 100 });
 
     const srRight = ScrollReveal({
         origin: "right",
@@ -166,60 +167,75 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /* ----- ALBUMS SECTION ----- */
 document.addEventListener("DOMContentLoaded", () => {
-    const albums = document.querySelectorAll(".album");
-    const albumDetails = document.querySelector(".album-details");
-    const closeBtn = document.querySelector(".close-btn");
-    const songList = document.querySelector(".song-list");
-    const audioPlayer = document.querySelector(".audio-player");
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
+    const songImage = document.getElementById("song-image");
+    const playOverlay = document.getElementById("play-overlay");
+    const songTitle = document.getElementById("song-title");
+    const audioPlayer = document.getElementById("audio-player");
     const audioSource = document.getElementById("audio-source");
-    const galleryContainer = document.querySelector(".gallery-container");
 
-    const albumsData = {
-        album1: [
-            { title: "A la Vida de mi Vida", src: "temasmusicales/D’ Robys Band - A la Vida de mi Vida.mp3" },
-            { title: "Adiós, Adiós", src: "temasmusicales/D’ Robys Band - Adiós, Adiós.mp3" },
-        ],
-        album2: [
-            { title: "Dime la Verdad", src: "temasmusicales/D’ Robys Band - Dime la Verdad.mp3" },
-            { title: "El Panteonero", src: "temasmusicales/D’ Robys Band - El Panteonero.mp3" },
-        ],
-        album3: [
-            { title: "Escrito está por el destino", src: "temasmusicales/D’ Robys Band - Escrito esta por el Destino.mp3" },
-            { title: "Favor Me Haces", src: "temasmusicales/D’ Robys Band - Favor Me Haces.mp3" },
-        ],
-    };
+    const songs = [
+        {
+            title: "A la Vida de mi Vida",
+            src: "temasmusicales/D’ Robys Band - A la Vida de mi Vida.mp3",
+            img: "img/portada.jpeg"
+        },
+        {
+            title: "Adiós, Adiós",
+            src: "temasmusicales/D’ Robys Band - Adiós, Adiós.mp3",
+            img: "img/robysbandportada.jpg"
+        },
+        {
+            title: "Dime la Verdad",
+            src: "temasmusicales/D’ Robys Band - Dime la Verdad.mp3",
+            img: "img/robysbandportada2.jpg"
+        },
+        {
+            title: "El Panteonero",
+            src: "temasmusicales/D’ Robys Band - El Panteonero.mp3",
+            img: "img/robysbandportada2.jpg"
+        }
+    ];
 
-    albums.forEach((album) => {
-        album.addEventListener("click", () => {
-            const albumId = album.getAttribute("data-album");
-            const songs = albumsData[albumId] || [];
+    let currentIndex = 0;
 
-            albumDetails.querySelector(".album-title").textContent =
-                album.querySelector(".album-name").textContent;
-            songList.innerHTML = "";
+    function loadSong(index) {
+        const song = songs[index];
+        songImage.src = song.img;
+        songTitle.textContent = song.title;
+        audioSource.src = song.src;
+        audioPlayer.load();
+    }
 
-            songs.forEach((song) => {
-                const li = document.createElement("li");
-                li.textContent = song.title;
-                li.addEventListener("click", () => {
-                    audioSource.src = song.src;
-                    audioPlayer.load();
-                    audioPlayer.play();
-                });
-                songList.appendChild(li);
-            });
+    function togglePlayPause() {
+        if (audioPlayer.paused) {
+            audioPlayer.play();
+            playOverlay.textContent = "⏸ Pausar";
+        } else {
+            audioPlayer.pause();
+            playOverlay.textContent = "▶ Reproducir";
+        }
+    }
 
-            galleryContainer.classList.add("hidden");
-            albumDetails.classList.add("active");
-        });
+    prevBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + songs.length) % songs.length;
+        loadSong(currentIndex);
+        audioPlayer.pause(); // Pausar al cambiar canción
     });
 
-    closeBtn.addEventListener("click", () => {
-        galleryContainer.classList.remove("hidden");
-        albumDetails.classList.remove("active");
-        audioPlayer.pause();
+    nextBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % songs.length;
+        loadSong(currentIndex);
+        audioPlayer.pause(); // Pausar al cambiar canción
     });
+
+    playOverlay.addEventListener("click", togglePlayPause);
+
+    // Inicializar con la primera canción
+    loadSong(currentIndex);
 });
+
 
 /* ----- YOUTUBE SLIDER ----- */
 document.addEventListener("DOMContentLoaded", () => {
