@@ -3,7 +3,7 @@
 
 /* ----- VARIABLES ----- */
 :root{
-    background: radial-gradient(circle, rgb(25, 25, 30) 0%, rgb(10, 10, 10) 70%);
+    --body-color: rgb(15, 15, 20); /* Negro con un matiz azulado */
     --color-white: rgb(247, 243, 243); /* Color blanco para el texto */
     
     --text-color-second: rgb(181, 194, 137); /* Un color claro que contraste bien con el negro */
