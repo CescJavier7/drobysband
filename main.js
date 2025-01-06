@@ -95,6 +95,8 @@ if (typeof ScrollReveal !== "undefined") {
     srRight.reveal(".video-slider", { delay: 100 });
     srRight.reveal(".music-gallery", { delay: 100 });
     srRight.reveal(".form-control", { delay: 100 });
+    srRight.reveal(".video-section", { delay: 100 });
+
 }
 
 /* ----- CHANGE ACTIVE LINK ----- */
@@ -235,44 +237,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Inicializar con la primera canción
     loadSong(currentIndex);
 });
-
-
-/* ----- YOUTUBE SLIDER ----- */
-document.addEventListener("DOMContentLoaded", () => {
-    const slider = document.querySelector(".slider");
-    const sliderItems = document.querySelectorAll(".video-item iframe");
-    const prevBtn = document.querySelector(".prev-btn");
-    const nextBtn = document.querySelector(".next-btn");
-
-    let currentIndex = 0;
-
-    function pauseAllVideos() {
-        sliderItems.forEach((iframe) => {
-            const currentSrc = iframe.src;
-            iframe.src = "";
-            iframe.src = currentSrc;
-        });
-    }
-
-    function updateSlider() {
-        const offset = -currentIndex * 100;
-        slider.style.transform = `translateX(${offset}%)`;
-        pauseAllVideos();
-    }
-
-    prevBtn.addEventListener("click", () => {
-        currentIndex =
-            currentIndex > 0 ? currentIndex - 1 : sliderItems.length - 1;
-        updateSlider();
-    });
-
-    nextBtn.addEventListener("click", () => {
-        currentIndex =
-            currentIndex < sliderItems.length - 1 ? currentIndex + 1 : 0;
-        updateSlider();
-    });
-});
-
   // Inicialización de EmailJS con tu User ID
   (function() {
     emailjs.init("VdoOllUa1qXpVytJb"); // Reemplaza "YOUR_USER_ID" con tu ID de usuario de EmailJS
